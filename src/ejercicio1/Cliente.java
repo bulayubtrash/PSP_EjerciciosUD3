@@ -27,8 +27,8 @@ public class Cliente {
             
             String mensaje="Introduce cadena: uno";
             String uno=sc.nextLine();
-            pw.write(uno);
-            
+            pw.write(uno+"\n");
+            pw.flush();
             System.out.println("Mensaje enviado");
             
             BufferedReader br= new BufferedReader(new InputStreamReader(is));
@@ -45,6 +45,13 @@ public class Cliente {
 //            	System.out.println(line);
 //            	line= br.readLine();
 //			} while ();
+            
+            while((line=br.readLine())!=null) {
+            	System.out.println(line);
+            	line=br.readLine();
+            }
+            
+            
             
             System.out.println("Cerrando socket cliente");
             clientSocket.close();

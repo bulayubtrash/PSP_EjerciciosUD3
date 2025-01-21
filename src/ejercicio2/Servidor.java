@@ -1,7 +1,6 @@
-package ejercicio1;
+ package ejercicio2;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -11,7 +10,8 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Servididor {
+public class Servidor {
+	private static Cliente cliente;
 	public static void main(String[] args) {
 		try {
 			System.out.println("Creacion del socket servidor");
@@ -29,29 +29,21 @@ public class Servididor {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(os));
             
+            
             String line;
-            String k;
             while((line=br.readLine())!=null) {
             	System.out.println(line);
-            	
-            	k = "Recibido "+line;
-            	pw.write(k+"\n");
-            	pw.flush();
-            }
-
+            }            
+            pw.print("Hola cliente "+ cliente.getIdentificador());
             
-            
-			br.close();
+        	br.close();
 			pw.close();
 			is.close();
 			os.close();
-			
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		
 	}
 
 }
