@@ -38,7 +38,7 @@ public class Cliente {
 					System.out.println("El numero a adivinar es mayor");
 				}else {
 					nmio=num;
-					System.out.println("Adivinado");
+					System.out.println("A	divinado");
 					break;
 				}
 			} while (num!=nmio);
